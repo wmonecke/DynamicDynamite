@@ -1,4 +1,4 @@
-//Requiring all my installed packages - Express and express-ejs-layouts
+//Requiring all my installed packages - Express, express-ejs-layouts, body-parser
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser');
@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(expressLayouts);
 app.set('layout', 'layouts/main-layout');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); //wiring body-parser to the app
 
 //Actual logic below this point. Trigger: calling the domain. Directed to '/'.
 app.get('/', (req, res, next) => {
@@ -47,21 +47,25 @@ app.get('/', (req, res, next) => {
 }); // Close app.get('/') // HOMEEEEEE
 
 app.post('/', (req, res, next) => {
-  res.send('POST submission OK');
+  const name = req.body.namelastname;
+  const password = req.body.password;
+
+  if (name === 'Walter Monecke' && password === 'mypassword' ) {
+    res.redirect('/products');
+  } else {
+    res.redirect('/elon');
+  }
 });
 
 app.get('/products', (req, res, next) => {
   const name = req.query.namelastname;
   const password = req.query.password;
 
-  if (password === 'mypassword') {
+
     res.render('products', {
       name: name,
       password: password
-    });
-  } else {
-    res.redirect('/');
-  }
+  });
 });
 
 app.get('/elon', (req, res, next) => {
