@@ -1,0 +1,25 @@
+{
+  "name": "dynamicdynamite",
+  "version": "1.0.0",
+  "description": "Using Express.js to build an interactive website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmonecke/DynamicDynamite.git"
+  },
+  "author": "Walter Monecke (wmonecke@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wmonecke/DynamicDynamite/issues"
+  },
+  "homepage": "https://github.com/wmonecke/DynamicDynamite#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "ejs": "^2.5.6",
+    "express": "^4.14.1",
+    "express-ejs-layouts": "^2.2.0"
+  }
+}
